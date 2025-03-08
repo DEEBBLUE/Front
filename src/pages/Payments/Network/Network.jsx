@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Item from './Item.jsx'
 import { useNavigate } from 'react-router-dom'
-import { ReactComponent as TonLogo } from "../../../images/CryptoLogo/Ton.svg'
+import { ReactComponent as TonLogo } from '../../../images/CryptoLogo/Ton.svg'
 import { ReactComponent as ErcLogo } from '../../../images/CryptoLogo/Erc.svg'
 import { ReactComponent as SolanaLogo } from '../../../images/CryptoLogo/Solana.svg'
 import { ReactComponent as BnbLogo } from '../../../images/CryptoLogo/Bnb.svg'
