@@ -1,0 +1,85 @@
+/**/
+.NetContainer{
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+/**/
+.SmallContainer{
+  width: 80vw;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5vw 0vh;
+  position: relative;
+}
+.NetworkName{
+  font-size: 7vw;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  opacity: 0.8;
+  width: 76vw;
+}
+
+/**/
+.NetItem{
+  margin-top: 4vw;
+  background: transparent;
+}
+/**/
+.ItemButton{
+  width: 70vw;
+  height: 14vw;
+  border-radius: 7vw;
+  border: 0px;
+  display: flex; 
+  flex-direction: row;
+  background: rgba(76, 76, 76,0.9);
+}
+/**/
+.ItemImg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14vw; 
+  height: 14vw;
+  background: transparent;
+}
+/*FUllNAME POSIOTION*/
+.FullName{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 4vw;
+  width: 70%;
+  margin-top: 3%;
+  margin-left: 2%;
+  background: transparent;
+}
+/*SHORTNAME POSIOTION*/
+.ShortName{
+  position: absolute;
+  font-size: 4vw;
+  opacity: 0.6;
+  margin-top: 10%;
+  margin-left: 20%;
+  background: transparent;
+  z-index: 1111;
+}
+/**/
+.ShortNameSpan{
+  background: transparent;
+}
+.FullNameSpan{
+  background: transparent;
+}
+.CryptoLogo{
+  width: 9vw;
+  height: 9vw;
+}

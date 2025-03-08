@@ -1,0 +1,84 @@
+/*BalanceDiv style*/
+
+/*Globall settings*/
+.Main{
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 20vh;
+}
+:root{
+  --logo-wigth: 7vh;
+  --logo-height: 7vh;
+  --text-color: #FF8911;
+  --logo-opacity: 0.9;
+  --border-rad: 4vw; 
+  --bg-container: rgba(50,50,50,0.9);
+}
+
+/*Balance settings*/
+.BalanceDiv{
+  margin-top: 17vh;
+  width: 100%;
+}
+.BalancePar{
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+.Currency{
+  opacity: 0.4;
+  font-size: 8vw;
+}
+.Balance{
+  font-size: 10vw;
+}
+
+/*Exchange Settings*/
+.Exchange {
+  margin-top: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+/*Payments settigns*/
+.PaymentsDiv{
+  margin-right: 10vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.PaymentsPar{
+  font-size: 3vw;
+  opacity: var(--logo-opacity);
+  margin-right: 1vw;
+}
+
+/*Withdraw settigns*/
+.WithdrawDiv{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.WithdrawPar{
+  font-size: 3vw;
+  opacity: var(--logo-opacity);
+  margin-left: 1vw;
+}
+/*Logo settings */
+.Logo{
+  width: var(--logo-wight);
+  height: var(--logo-height);
+  opacity: var(--logo-opacity);
+}
+
+
+
+
