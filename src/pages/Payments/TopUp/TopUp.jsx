@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import getMess from '../getMess.jsx'
-import { ReactComponent as TetherLogo } from '/home/lifter/scam_gem/front/src/images/CryptoLogo/Tether.svg'
+import { ReactComponent as TetherLogo } from '../../../images/CryptoLogo/Tether.svg'
 import './style.css'
 
 function TopUp({net}) {

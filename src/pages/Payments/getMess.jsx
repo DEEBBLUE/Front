@@ -1,9 +1,9 @@
 import React from 'react'
-import { ReactComponent as TronLogo} from '/home/lifter/scam_gem/front/src/images/CryptoLogo/Tron.svg'
-import { ReactComponent as TonLogo} from '/home/lifter/scam_gem/front/src/images/CryptoLogo/Ton.svg'
-import { ReactComponent as ErcLogo} from '/home/lifter/scam_gem/front/src/images/CryptoLogo/Erc.svg'
-import { ReactComponent as BnbLogo} from '/home/lifter/scam_gem/front/src/images/CryptoLogo/Bnb.svg'
-import { ReactComponent as SolanaLogo} from '/home/lifter/scam_gem/front/src/images/CryptoLogo/Solana.svg'
+import { ReactComponent as TronLogo} from '../../images/CryptoLogo/Tron.svg'
+import { ReactComponent as TonLogo} from '../../images/CryptoLogo/Ton.svg'
+import { ReactComponent as ErcLogo} from '../../images/CryptoLogo/Erc.svg'
+import { ReactComponent as BnbLogo} from '../../images/CryptoLogo/Bnb.svg'
+import { ReactComponent as SolanaLogo} from '../../images/CryptoLogo/Solana.svg'
 
 function getMess(net,className) {
   console.log(net)

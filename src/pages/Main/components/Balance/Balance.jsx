@@ -1,8 +1,8 @@
 import React from 'react'
 import './style.css'
 import { useNavigate } from 'react-router-dom'
-import { ReactComponent as WithdrawLogo } from '/home/lifter/scam_gem/front/src/images/WidthDrawArrowLight.svg'
-import { ReactComponent as PaymentsLogo } from '/home/lifter/scam_gem/front/src/images/PaymentsArrowLight.svg'
+import { ReactComponent as WithdrawLogo } from '../../../../images/WidthDrawArrowLight.svg'
+import { ReactComponent as PaymentsLogo } from '../../../../images/PaymentsArrowLight.svg'
 import Transform from './transform.js'
 
 
