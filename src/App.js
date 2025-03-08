@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import {Routes, Route , useNavigate} from 'react-router-dom';
+import React,{ useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
 
 import Main from './pages/Main/Main.jsx' 
 import TopUp from './pages/Payments/TopUp/TopUp.jsx'
@@ -16,7 +16,7 @@ function App() {
   const [net,setNetwork] = useState("")
   let path = ""
 
-  if(action == "TopUp"){
+  if(action === "TopUp"){
       path = "/payments/topup"
   }else{
       path = "/payments/withdraw"

@@ -1,7 +1,5 @@
 var spinLine = ""
 var state = false
-var timeout
-var res
 
 const spin = () => {
     if(state){

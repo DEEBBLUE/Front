@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Item from './Item.jsx'
 import { useNavigate } from 'react-router-dom'
 import { ReactComponent as TonLogo } from '../../../images/CryptoLogo/Ton.svg'

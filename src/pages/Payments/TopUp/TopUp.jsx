@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from "react-router-dom"
 import getMess from '../getMess.jsx'
 import { ReactComponent as TetherLogo } from '../../../images/CryptoLogo/Tether.svg'

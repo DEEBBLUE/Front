@@ -19,7 +19,7 @@ function Withdraw({net,balance}) {
   )
 
   const update = (target) => {
-    if(isNaN(Number(target)) == false) {
+    if(isNaN(Number(target)) === false) {
 
       console.log(isNaN(Number(target)))
       setAmount(target)
