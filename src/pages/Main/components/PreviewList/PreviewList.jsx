@@ -1,7 +1,10 @@
 import React,{ useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Preview from './Preview/Preview.jsx'
 
 const PreviewList = ({itemsList, setMenuVisible}) => {
+  const nav = useNavigate()
+
   const [mainId,setMainId] = useState()
   const MainButton = window.Telegram.WebApp.MainButton
 
@@ -20,7 +23,7 @@ const PreviewList = ({itemsList, setMenuVisible}) => {
     console.log(elem)
     elem.classList.add("Coloring")
   }
-  const onClick = (id) => {
+  const onClick = (id,url) => {
     setMenuVisible(false)
     setMainId(id)
     dropDownAll()
@@ -30,13 +33,15 @@ const PreviewList = ({itemsList, setMenuVisible}) => {
     }else{
       AddStyle(id)
       MainButton.show()
+      console.log(url)
+      MainButton.onClick(() => nav(url,{replace: false}))
     }
   }
   return (
     <>
       {
         itemsList.map((item) => 
-          <Preview id={item.id} price={item.price} img={item.img} onClick={onClick}/> 
+          <Preview id={item.id} price={item.price} img={item.img} url={item.url} onClick={onClick}/> 
         )
       }
     </>  
