@@ -1,10 +1,10 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
 
 function Cases() {
   return (
     <>
-      <Outlet/> 
-    </>) 
+      <div> This is Cases</div>             
+    </>
+  ) 
 }
 export default Cases
