@@ -15,9 +15,9 @@ function Main() {
   }
   
   const [games,setGames] = useState([
-    {id: "1", img: "#", price: "50"},
-    {id: "2", img: "#", price: "100"},
-    {id: "3", img: "#", price: "250"},
+    {id: "1", img: "#", price: "50", url: "/games/cases"},
+    {id: "2", img: "#", price: "100",url: "/games/lottery"},
+    {id: "3", img: "#", price: "250",url: "/games/funnel"},
   ])
 
   return (
