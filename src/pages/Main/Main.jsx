@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import PreviewList from './components/PreviewList/PreviewList.jsx'
 import Header from './components/Header/Header.jsx'
 
-const Main = () => {
+const Main = (props) => {
   const [menuVisible,setMenuVisible] = useState(false)
   const [mainButtonShow,setMainButtonShow] = useState(false)
-  const [game,getGame] = useState("")
 
   const nav = useNavigate()
   if(mainButtonShow){
@@ -24,7 +23,7 @@ const Main = () => {
 
   return (
     <>
-      <Header menuVisible={menuVisible} setMenuVisible={setMenuVisible} callback={getGame}/>
+      <Header menuVisible={menuVisible} setMenuVisible={setMenuVisible} callback={props.setGame}/>
       <PreviewList itemsList={games} setMenuVisible={setMenuVisible} setMainVisible={setMainButtonShow}/>      
     </>
   ); 
