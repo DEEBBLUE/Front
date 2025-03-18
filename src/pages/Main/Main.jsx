@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import PreviewList from './components/PreviewList/PreviewList.jsx'
 import Header from './components/Header/Header.jsx'
 
-function Main({callback,balance}) {
+function Main() {
   const [menuVisible,setMenuVisible] = useState(false)
   const [game,getGame] = useState("")
   window.Telegram.WebApp.MainButton.hide()
