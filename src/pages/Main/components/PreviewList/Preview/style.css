@@ -1,0 +1,40 @@
+.PreviewContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 7vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding: 3vw;
+  background: transparent;
+}
+.PreviewButton{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  outline: none;
+  border: none; 
+  padding: 4vw;
+  border-radius: var(--border-rad);
+  background: var(--bg-container);
+}
+.PreviewImg{
+  width: 75vw;
+  height: 50vw;
+  background: black;
+}
+.PreviewPrice{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75vw;
+  height: 15vw;
+  margin-top: 3vw;
+  font-size: 6vw;
+  background: transparent;
+  text-align: center;
+}
+.CaseCurrency{
+  font-size: 5.5vw;
+  opacity: 0.4;
+}

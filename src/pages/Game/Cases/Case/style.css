@@ -1,0 +1,90 @@
+:root{
+  --case-spline-width: 90vw;
+  --case-spline-height: 40vh;
+  --case-animation-duration: 100ms;
+  --case-timing-function: linear;
+}
+
+.CaseMainContainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.CaseSpinLine{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: var(--case-spline-width);
+  height: var(--case-spline-height);
+  overflow: hidden;
+}
+.CasePrizeContainer{
+  width: calc(var(--case-spline-width) / 5);
+  height: var(--case-spline-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CasePrize{
+  width: calc(var(--case-spline-width) / 5 - 6vw); 
+  height: calc(var(--case-spline-height) - 6vw);
+  margin: 3vw;
+  border: 10px solid yellow;
+  border-radius: 2vw;
+}
+.animation-remove-container{
+  animation-name: remove-prize-container;
+  animation-fill-mode: forwards;
+  animation-duration: var(--case-animation-duration);
+  animation-timing-function: var(--case-timing-function);
+}
+
+.animation-remove{
+  animation-name: remove-prize;
+  animation-fill-mode: forwards;
+  animation-duration: var(--case-animation-duration);
+  animation-timing-function: var(--case-timing-function);
+}
+.animation-create-container{
+  animation-name: remove-prize-container;
+  animation-fill-mode: forwards;
+  animation-duration: var(--case-animation-duration);
+  animation-direction: reverse;
+  animation-timing-function: var(--case-timing-function);
+}
+
+.animation-create{
+  animation-name: remove-prize;
+  animation-fill-mode: forwards;
+  animation-duration: var(--case-animation-duration);
+  animation-direction: reverse;
+  animation-timing-function: var(--case-timing-function);
+}
+
+
+
+@keyframes remove-prize-container {
+  0%{
+    width: calc(var(--case-spline-width) / 5);
+  } 
+  100%{
+    width: 0;
+  }
+}
+@keyframes remove-prize {
+  0%{
+    width: calc(var(--case-spline-width) / 5 - 6vw);
+    margin: 3vw;
+    border: 10px solid yellow;
+  } 
+  100%{
+    width: 0;
+    margin: 0;
+    border: 0px solid transparent;
+  }
+}

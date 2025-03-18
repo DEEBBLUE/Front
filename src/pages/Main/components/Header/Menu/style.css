@@ -1,0 +1,32 @@
+.MenuItem{
+  text-align: flex-start;
+  margin: 1vw 0;
+  margin-left: 1.5vw;
+  font-size: 2.5vh;
+}
+.animationMenuCreate{
+  animation-name: menu-apperance;
+  animation-fill-mode: forwards;
+  animation-duration: 0.25s; 
+}
+.animationMenuRemove{
+  animation-name: menu-apperance;
+  animation-fill-mode: forwards;
+  animation-duration: 0.25s; 
+  animation-direction: reverse;
+  animation-timing-function: linear;
+}
+@keyframes menu-apperance {
+  0%{
+    height: 0;
+    font-size: 0;
+    margin: 0;
+    margin-left: 1.5vw;
+  } 
+  100%{
+    height: calc(2vw + 1.7vh);
+    font-size: 2.5vh;
+    margin: 1vw 0;
+    margin-left: 1.5vw;
+  }
+}

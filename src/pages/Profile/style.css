@@ -1,0 +1,34 @@
+.BalanceContainer{
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Balance{
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
+  font-size: 5vw;
+}
+.PaymentsButton{
+  padding: 1vw 2vw;
+  width: 30vw;
+  height: 5vh;
+  background: #FF8911;
+  opacity: 0.9;
+  border: none;
+  border-radius: 1vw;
+  margin-top: 2vh;
+}
+.ChoiseButtonContainer{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-content: center;
+  align-items: center;
+}
+.ChoiseButton{
+  padding: 1vw 2vw;
+  border: none;
+  height: 5vh;
+}

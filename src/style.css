@@ -1,0 +1,17 @@
+*{
+  margin:0;
+  color: var(--tg-theme-text-color) ;
+  font-family: "Font";
+}
+body{
+  background: var(--tg-theme-header-bg-color);
+}
+*::-webkit-scrollbar{
+  display: none
+}
+@font-face {
+  font-width: normal;
+  font-family: "Font";
+  src: url("./fonts/SFProText-Bold.ttf");
+}
+

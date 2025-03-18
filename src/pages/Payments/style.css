@@ -1,0 +1,32 @@
+.PaymentsContainer{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.PaymentsInputContainer{
+  width: 100vw; 
+  background: black;
+  margin-top: 40vw;
+  display: flex;
+  justify-content: center;
+}
+.PaymentsRangeContainer{
+  width: 100vw;
+  background: yellow;
+  display: flex;
+  justify-content: center;
+  margin-top: 10vw;
+}
+.AmountTextInput{
+  
+}
+.AmountRangeInput{
+  overflow: hidden;
+  outline: none;
+  appearance: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
