@@ -5,15 +5,17 @@ import Header from './components/Header/Header.jsx'
 
 function Main() {
   const [menuVisible,setMenuVisible] = useState(false)
+  const [mainButtonShow,setMainButtonShow] = useState(false)
   const [game,getGame] = useState("")
-  window.Telegram.WebApp.MainButton.hide()
-  window.Telegram.WebApp.BackButton.hide()
-  const nav = useNavigate()
 
-  const case1 = () => {
-    nav("/games/cases/case1",{replace: false})      
+  const nav = useNavigate()
+  if(mainButtonShow){
+    window.Telegram.WebApp.MainButton.show()
+  }else{
+    window.Telegram.WebApp.MainButton.hide()
   }
-  
+  window.Telegram.WebApp.BackButton.hide()
+
   const [games,setGames] = useState([
     {id: "1", img: "#", price: "50", url: "/games/cases"},
     {id: "2", img: "#", price: "100",url: "/games/lottery"},
@@ -23,7 +25,7 @@ function Main() {
   return (
     <>
       <Header menuVisible={menuVisible} setMenuVisible={setMenuVisible} callback={getGame}/>
-      <PreviewList itemsList={games} setMenuVisible={setMenuVisible}/>      
+      <PreviewList itemsList={games} setMenuVisible={setMenuVisible} setMainVisible={setMainButtonShow}/>      
     </>
   ); 
 }

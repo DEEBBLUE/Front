@@ -2,10 +2,10 @@ import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Preview from './Preview/Preview.jsx'
 
-const PreviewList = ({itemsList, setMenuVisible}) => {
+const PreviewList = ({itemsList, setMenuVisible,setMainVisible}) => {
   const nav = useNavigate()
+  const [mainId,setMainId] = useState("none")
 
-  const [mainId,setMainId] = useState()
   const MainButton = window.Telegram.WebApp.MainButton
 
   const dropDownAll = () => {
@@ -28,12 +28,11 @@ const PreviewList = ({itemsList, setMenuVisible}) => {
     setMainId(id)
     dropDownAll()
     if(id === mainId){
-      MainButton.hide()
       setMainId("none")
+      setMainVisible(false)
     }else{
       AddStyle(id)
-      MainButton.show()
-      console.log(url)
+      setMainVisible(true)
       MainButton.onClick(() => nav(url,{replace: false}))
     }
   }
