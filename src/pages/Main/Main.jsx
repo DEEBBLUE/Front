@@ -7,7 +7,6 @@ const Main = (props) => {
   const [menuVisible,setMenuVisible] = useState(false)
   const [mainButtonShow,setMainButtonShow] = useState(false)
 
-  const nav = useNavigate()
   if(mainButtonShow){
     window.Telegram.WebApp.MainButton.show()
   }else{
