@@ -4,7 +4,7 @@ import SpinLine from './SpinLine.jsx'
 import onClick from './spin.js'
 import './style.css'
 
-function CasePage() {
+const Case = () => {
   window.Telegram.WebApp.MainButton.show()
   window.Telegram.WebApp.MainButton.onClick(() => onClick())
 
@@ -21,4 +21,4 @@ function CasePage() {
     </>
   ) 
 }
-export default CasePage
+export default Case
