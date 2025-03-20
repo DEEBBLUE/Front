@@ -1,0 +1,47 @@
+.ListAmountContainer{
+  margin-top: 5vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  width: 80vw;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border: 3px solid black;
+  border-radius: 3vw;
+}
+.AmountContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.anim-ListAmount-remove{
+  animation-name: anim-ListAmount;
+  animation-fill-mode: forwards;
+  animation-duration: 0.08s;
+  animation-timing-function: linear;
+}
+
+@keyframes anim-ListAmount{
+  0%{
+    margin-top: 5vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    height: 10vh;
+  } 
+  80%{
+    border: 3px solid black;
+  }
+  99%{
+    border: 1px solid transparent;
+  }
+  100%{
+    margin-top: 0;
+    margin-left: 0; 
+    margin-right: 0; 
+    height: 0;
+    display: none;
+    border: none;
+
+    overflow: hidden;
+  }
+}
