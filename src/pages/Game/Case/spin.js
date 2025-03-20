@@ -1,27 +1,23 @@
 var spinLine = ""
-const maxTimeout = 1000
+const maxTimeout = 1100
 const minTimeout = 100
 var timeout = maxTimeout 
+var activeTimeout = 2000
 var state = false
-var isActive = false
 
 const onClick = () => {
   state = !state
-  if(!isActive){
-    isActive = true
-    spin()
-  }
-} 
+  spin()
+}
 
 const spin = () => {
-
   document.documentElement.style.setProperty("--case-animation-duration",timeout + "ms")
 
-  if(!state && (timeout + 100) >= maxTimeout){
+  if(!state && (timeout + Math.round(timeout / 5)) >= maxTimeout){
     setTimeout(() => {
       var spinLine = document.querySelectorAll(".CasePrizeContainer") 
       spinLine[3].style.backgroundColor = "yellow"
-      isActive = false
+      activeTimeout = 2000
     }, timeout);
   }else{
     animation()
@@ -32,17 +28,8 @@ const animation = () =>{
     create()
     var elem = document.querySelectorAll(".CasePrizeContainer")
     clear(elem[elem.length - 2])
-    remove(document.querySelector(".CasePrizeContainer"))
+    remove(document.querySelector(".CasePrizeContainer"),state)
 }
-
-const clear = (obj) => {
-  if (obj.classList.contains("animation-create-container")){
-    console.log("Clear")
-    obj.classList.remove("animation-create-container")
-    obj.querySelector(".CasePrize").classList.remove("animation-create")
-  }
-}
-
 
 const create = () => {
   const prize = document.createElement("div")
@@ -57,6 +44,15 @@ const create = () => {
   document.querySelector(".CaseSpinLine").append(container)   
 }
 
+const clear = (obj) => {
+  if (obj.classList.contains("animation-create-container")){
+    console.log("Clear")
+    obj.classList.remove("animation-create-container")
+    obj.querySelector(".CasePrize").classList.remove("animation-create")
+  }
+}
+
+
 const remove = (obj) => {
   console.log("Remove")
   obj.querySelector(".CasePrize").classList.add("animation-remove")
@@ -64,17 +60,23 @@ const remove = (obj) => {
   setTimeout(() => {
     obj.remove() 
     if(state){
-      if ((timeout - 100) >= minTimeout){ 
+      if (((timeout - Math.round(timeout/2.5)) >= minTimeout)){ 
         console.log(timeout)
-        timeout = timeout - 100 
-      }
-    }else{
-      if((timeout + 100) <= maxTimeout){
-        console.log(timeout)
-        timeout = timeout + 100 
+        timeout = timeout - Math.round(timeout/2.5)
+      }else{
+        state = false 
+        setTimeout(() => {
+          activeTimeout = 0
+          timeout = Math.round(timeout / 100) * 100
+        }, activeTimeout);
       }
     }
+    
+    if ((activeTimeout === 0) && ((timeout + Math.round(timeout / 5)) <= maxTimeout)){
+      timeout = timeout + Math.round(timeout / 5)
+    }
+    
     spin()
   }, timeout)
 }
-export default onClick
+export default onClick 
