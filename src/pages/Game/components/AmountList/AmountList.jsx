@@ -2,6 +2,12 @@ import React from 'react'
 import './style.css'
 
 const AmountList = ({list}) => {
+  const [amountList,setAmountList] = useState([
+    {amount: " 25"},
+    {amount: "50"},
+    {amount: " 100"},
+  ])
+ 
   return (
     <>
       <div className="ListAmountContainer">

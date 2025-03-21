@@ -2,18 +2,15 @@ import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import onClick from './spin.js' 
 import SpinLine from './SpinLine/SpinLine.jsx'
-import AmountList from './AmountList/AmountList.jsx'
+import AmountList from '../components/AmountList/AmountList.jsx'
 import './style.css'
 
 const Case = () => {
+  const nav = useNavigate()
   const [anim,setAnim] = useState(false)
-  const [amountList,setAmountList] = useState([
-    {amount: " 25"},
-    {amount: "50"},
-    {amount: " 100"},
-  ])
   if (anim){
     window.Telegram.WebApp.MainButton.hide()
+    window.Telegram.WebApp.BackButton.hide()
 
     const list = document.getElementsByClassName("ListAmountContainer") 
     const line = document.getElementsByClassName("CaseSpinLine")
@@ -31,13 +28,12 @@ const Case = () => {
       setAnim(!anim)
     },12000 );
   }else{
+    window.Telegram.WebApp.BackButton.show()
+    window.Telegram.WebApp.BackButton.onClick(() => nav("/",{replace: false}))
+
     window.Telegram.WebApp.MainButton.show()
     window.Telegram.WebApp.MainButton.onClick(() => setAnim(!anim))
   }
-
-  const nav = useNavigate()
-  window.Telegram.WebApp.BackButton.show()
-  window.Telegram.WebApp.BackButton.onClick(() => nav("/",{replace: false}))
 
   return (
     <>
