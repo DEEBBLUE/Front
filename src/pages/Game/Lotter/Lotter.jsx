@@ -1,6 +1,7 @@
 import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LotteryField from './LotteryField.jsx'
+import AmountList from '../components/AmountList/AmountList.jsx'
 import './style.css'
 
 const Lotter = () => {
@@ -27,6 +28,7 @@ const Lotter = () => {
 
   return (
     <>
+      <AmountList/>
       <div className="LotteryContainer">
         {
           [...Array(4*5)].map((item,index) => 
