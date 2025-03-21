@@ -13,21 +13,13 @@ const Games = () => {
   const loc = useLocation()
   const [tag,setTag] = useState()
 
-  useEffect(() => {
-    if (loc.pathname === "/games/case/"){
-      setTag(<Case active={isActive} setActive={setIsActive} delay={250}/>)
-    }if (loc.pathname === "/games/lottery/"){
-      setTag(<Lotter/>)
-    }      
-  }, [isActive])
-  
   const MainButton = window.Telegram.WebApp.MainButton
   const BackButton = window.Telegram.WebApp.BackButton
   if(isActive){
     MainButton.hide()
     BackButton.hide()   
     const list = document.getElementsByClassName("ListAmountContainer") 
-    const line = document.getElementsByClassName("CaseSpinLine")
+    const line = document.getElementsByClassName("ContainerWithGame")
     list[0].classList.add("anim-ListAmount-remove")
     line[0].classList.add("anim-goto-center")
   }else{
@@ -46,6 +38,15 @@ const Games = () => {
     }
   }
 
+
+  useEffect(() => {
+    if (loc.pathname === "/games/case/"){
+      setTag(<Case active={isActive} setActive={setIsActive} delay={250}/>)
+    }if (loc.pathname === "/games/lottery/"){
+      setTag(<Lotter active={isActive} setActive={setIsActive}/>)
+    }      
+  }, [isActive])
+  
   return (
     <>
       <div className="GamesContainer">
