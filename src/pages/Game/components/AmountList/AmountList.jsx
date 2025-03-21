@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import './style.css'
 
 const AmountList = () => {
@@ -12,7 +12,7 @@ const AmountList = () => {
     <>
       <div className="ListAmountContainer">
         {
-          list.map((amount) => <div className="AmountContainer">{amount.amount}</div>)
+          amountList.map((amount) => <div className="AmountContainer">{amount.amount}</div>)
         }
       </div>
     </>
