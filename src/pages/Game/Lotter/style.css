@@ -1,0 +1,51 @@
+
+:root{
+  --LotterContainer-height: 80vh;
+  --LotterContainer-width: 90vw;
+  --LotteryFeild: 18vw;
+}
+
+.LotteryContainer{
+  margin-top: 5vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  display: grid;
+  grid-template-columns: repeat(5,var(--LotteryFeild));
+  grid-template-rows: repeat(4,var(--LotteryFeild));
+}
+.LotteryField{
+  width: var(--LotteryFeild); 
+  height: var(--LotteryFeild); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.LotteryPrize{
+  background: black;
+  width: 16vw;
+  height: 16vw;
+  border: none;
+  border-radius: 3vw;
+}
+.anim-lotter-remove{
+  animation-name: anim-lotter-remove;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes anim-lotter-remove {
+  0%{
+    width: 16vw; 
+    height: 16vw;   
+  } 
+  20%{
+    width: calc(2vw + 16vw); 
+    height: calc(2vw + 16vw);
+  }
+  100%{
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}
