@@ -38,7 +38,7 @@ const Case = () => {
   return (
     <>
       <div className="CaseMainContainer">
-        <AmountList list={amountList}/>
+        <AmountList/>
         <SpinLine/>
         <button onClick={() => setAnim(!anim)}> Start </button>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-const AmountList = ({list}) => {
+const AmountList = () => {
   const [amountList,setAmountList] = useState([
     {amount: " 25"},
     {amount: "50"},
