@@ -12,7 +12,6 @@
   padding: 0;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 .CaseSpinLine{
   display: flex;
@@ -23,6 +22,7 @@
   height: var(--case-spline-height);
   overflow: hidden;
 }
+
 .CasePrizeContainer{
   width: calc(var(--case-spline-width) / 5);
   height: var(--case-spline-height);
@@ -37,6 +37,7 @@
   border: 10px solid yellow;
   border-radius: 2vw;
 }
+
 .animation-remove-container{
   animation-name: remove-prize-container;
   animation-fill-mode: forwards;
@@ -66,22 +67,6 @@
   animation-timing-function: var(--case-timing-function);
 }
 
-.anim-goto-center{
-  animation-name: GoToCenter;
-  animation-fill-mode: forwards;
-  animation-duration: 0.08s;
-  animation-timing-function: linear;
-}
-
-@keyframes GoToCenter {
-  0%{
-    margin-top: 0; 
-  } 
-  100%{
-    margin-top: 30vw; 
-  }
-}
-
 @keyframes remove-prize-container {
   0%{
     width: calc(var(--case-spline-width) / 5);
@@ -90,6 +75,7 @@
     width: 0;
   }
 }
+
 @keyframes remove-prize {
   0%{
     width: calc(var(--case-spline-width) / 5 - 6vw);
