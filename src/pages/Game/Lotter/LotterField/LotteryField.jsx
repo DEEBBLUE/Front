@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 const LotteryField = ({index,anim}) => {
   return (

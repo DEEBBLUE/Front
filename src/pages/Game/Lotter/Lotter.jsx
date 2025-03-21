@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from 'react'
-import LotteryField from './LotteryField.jsx'
+import LotteryField from './LotterField/LotteryField.jsx'
 import './style.css'
 
 const Lotter = ({active,setActive}) => {
