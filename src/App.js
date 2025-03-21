@@ -11,6 +11,12 @@ import Lotter from './pages/Game/Lotter/Lotter.jsx'
 import "./style.css"
 
 function App() {
+  const [paths,setPaths] = useState([
+    { path: "/games/case" },
+    { path: "/games/funnel" },
+    { path: "/games/lotter" },
+
+  ])
   const [action,setAction] = useState("")
   const [game,getGame] = useState("")
 
@@ -18,16 +24,15 @@ function App() {
   tg.setHeaderColor(tg.themeParams.header_bg_color)
   tg.themeParams.button_color = "#FF8911"
 
+
   return (
     <Routes>
         <Route path="/" element={<Main setGame={getGame}/>}/>
         <Route path="/profile/" element={<Profile/>}/>
         <Route path="/payments" element={<Payments/>}/>
-        <Route path="/games" element={<Games/>}>
-          <Route path="/games/case" element={<Case/>}/>
-          <Route path="/games/funnel" element={<Funnel/>}/>
-          <Route path="/games/lottery" element={<Lotter/>}/>
-        </Route>
+        <Route path="/games/case/" element={<Games/>}/>
+        <Route path="/games/lottery/" element={<Games/>}/>
+        <Route path="/games/funnel/" element={<Games/>}/>
     </Routes>
   )
 }

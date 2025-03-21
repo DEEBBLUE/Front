@@ -15,9 +15,9 @@ const Main = (props) => {
   window.Telegram.WebApp.BackButton.hide()
 
   const [games,setGames] = useState([
-    {id: "1", img: "#", price: "50", url: "/games/case"},
-    {id: "2", img: "#", price: "100",url: "/games/lottery"},
-    {id: "3", img: "#", price: "250",url: "/games/funnel"},
+    {id: "1", img: "#", price: "50", url: "/games/case/"},
+    {id: "2", img: "#", price: "100",url: "/games/lottery/"},
+    {id: "3", img: "#", price: "250",url: "/games/funnel/"},
   ])
 
   return (
