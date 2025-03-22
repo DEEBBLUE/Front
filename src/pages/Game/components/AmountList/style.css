@@ -20,7 +20,13 @@
   animation-duration: 0.08s;
   animation-timing-function: linear;
 }
-
+.anim-ListAmount-start{
+  animation-name: anim-ListAmount;
+  animation-fill-mode: forwards;
+  animation-duration: 0.08s;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
 @keyframes anim-ListAmount{
   0%{
     margin-top: 5vw;

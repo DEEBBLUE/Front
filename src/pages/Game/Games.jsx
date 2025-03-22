@@ -15,30 +15,39 @@ const Games = () => {
 
   const MainButton = window.Telegram.WebApp.MainButton
   const BackButton = window.Telegram.WebApp.BackButton
-  if(isActive){
-    MainButton.hide()
-    BackButton.hide()   
-    const list = document.getElementsByClassName("ListAmountContainer") 
-    const line = document.getElementsByClassName("ContainerWithGame")
-    list[0].classList.add("anim-ListAmount-remove")
-    line[0].classList.add("anim-goto-center")
-  }else{
-    MainButton.show()
-    BackButton.show()
 
-    MainButton.onClick(() => setIsActive(true)) 
+  useEffect(() => {
+    if(isActive){
+      MainButton.hide()
+      BackButton.hide()   
 
-    BackButton.onClick(() => nav("/",{replace: false}))
+      const list = document.getElementsByClassName("ListAmountContainer") 
+      const line = document.getElementsByClassName("ContainerWithGame")
 
-    const list = document.getElementsByClassName("ListAmountContainer") 
-    const line = document.getElementsByClassName("ContainerWithGame")
-    if(!isNaN(list) && !isNaN(line)){
-      list[0].classList.remove("anim-ListAmount-remove")
-      line[0].classList.remove("anim-goto-center")
-    }
-  }
+      list[0].classList.add("anim-ListAmount-remove")
+      line[0].classList.add("anim-goto-center")
+    }else{
+      MainButton.show()
+      BackButton.show()
 
+      MainButton.onClick(() => setIsActive(true)) 
 
+      BackButton.onClick(() => nav("/",{replace: false}))
+
+      const list = document.getElementsByClassName("ListAmountContainer") 
+      const line = document.getElementsByClassName("ContainerWithGame")
+
+      if(isNaN(list) && isNaN(line)){
+        if(line[0].classList.contains("anim-goto-center") && list[0].classList.contains("anim-ListAmount-remove")){
+          line[0].classList.remove("anim-goto-center")
+          list[0].classList.remove("anim-ListAmount-remove")
+          line[0].classList.add("anim-goto-start")
+          list[0].classList.add("anim-ListAmount-start")
+        }
+      } 
+    }  
+  }, [isActive])
+   
   useEffect(() => {
     if (loc.pathname === "/games/case/"){
       setTag(<Case active={isActive} setActive={setIsActive} delay={250}/>)
@@ -54,6 +63,7 @@ const Games = () => {
         <div className="ContainerWithGame">
           {tag}
         </div>
+        <button onClick={() => setIsActive(true)}></button> 
       </div>  
     </>
   )
