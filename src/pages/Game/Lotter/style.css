@@ -12,4 +12,34 @@
   grid-template-columns: repeat(5,var(--LotteryFeild));
   grid-template-rows: repeat(4,var(--LotteryFeild));
 }
-
+.LotteryPrize{
+  background: yellow;
+  width: 0;
+  height: 0;
+}
+.anim-lotteryPrize-create{
+  animation-name: anim-prize-create; 
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s; 
+}
+.anim-lotteryPrize-remove{
+  animation-name: anim-prize-create; 
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
+  animation-duration: 0.5s; 
+}
+@keyframes anim-prize-create {
+  0%{
+    display: none;
+  } 
+  100%{
+    width: 16vw; 
+    height: 16vw;
+    border: none;
+    border-radius: 3vw;
+  }
+}

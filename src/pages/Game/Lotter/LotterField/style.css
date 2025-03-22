@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
 }
-.LotteryPrize{
+.LotteryPrizeHide{
   background: black;
   width: 16vw;
   height: 16vw;
@@ -18,6 +18,14 @@
   animation-delay: 0s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
+}
+.anim-lotter-create{
+  animation-name: anim-lotter-remove;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
 }
 @keyframes anim-lotter-remove {
   0%{

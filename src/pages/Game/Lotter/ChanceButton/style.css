@@ -1,0 +1,53 @@
+.ChanceContainer{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 16vh;
+  z-index: 1000;
+  overflow: hidden;
+}
+.anim-chanceButton-show{
+  animation-name: anim-chanceButton-show;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+.anim-chanceButton-remove{
+  animation-name: anim-chanceButton-show;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+.ChanceButton{
+  position: relative;
+  margin-top: 1vh;
+  width: 95vw;
+  height: 7vh;
+  background: #FF8911;
+  border: none;
+  border-radius: 1.4vw;
+  z-index: 1001;
+}
+
+.AlterButton{
+  position: relative;
+  margin-top: 1vh;
+  width: 95vw;
+  height: 7vh;
+  background: rgba(100,100,100,0.9);
+  border: none;
+  border-radius: 1.4vw;
+  z-index: 1001;
+}
+@keyframes anim-chanceButton-show {
+  0%{
+    height: 0;
+    display: none;
+  } 
+  100%{
+    height: 16vh;
+  }
+}
