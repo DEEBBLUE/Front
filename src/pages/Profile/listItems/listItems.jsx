@@ -1,12 +1,21 @@
-import React,{ useState } from 'react'
+import React,{ useContext,useEffect,useState } from 'react'
 import ItemCard from './ItemCard/ItemCard.jsx'
+import { ProfileContext } from '../ProfileContainer.jsx'
+import { ListItemsContext } from './ListItemsContainer.jsx'
 import './style.css'
 
-function ListItems({listItems}){ 
-  const MainButton = window.Telegram.WebApp.MainButton
-  const [mainId,setMainId] = useState()
+const ListItems = () => { 
+  const [profileContext,setProfileContext] = useContext(ProfileContext)
+  const [listItemsContext,setListItemsContext] = useContext(ListItemsContext)
 
-  const dropDownAll = () => {
+  const [items,setItems] = useState([
+      {id: "0",img: "#",url: ""},
+      {id: "1",img: "#",url: ""},
+      {id: "2",img: "#",url: ""},
+      {id: "3",img: "#",url: ""}
+  ])
+
+  const clear = () => {
     const list = document.querySelectorAll(".ItemCard")
     list.forEach(card => {
       if(card.classList.contains("Coloring")) {
@@ -17,26 +26,26 @@ function ListItems({listItems}){
 
   const AddStyle = (id) => {
     var elem = document.getElementById(id)
-    console.log(elem)
     elem.classList.add("Coloring")
   }
-  const onClick = (id) => {
-    setMainId(id)
-    dropDownAll()
-    if(id === mainId){
-      MainButton.hide()
-      setMainId("none")
+
+  useEffect(() => {
+    clear()
+    if(listItemsContext["mainId"] === "none"){
+      setProfileContext( prev => ({...prev,mainButtonVisible: false}))      
     }else{
-      AddStyle(id)
-      MainButton.show()
+      setProfileContext( prev => ({...prev,mainButtonVisible: true,mainButtonCallback: listItemsContext["url"]}))      
+      AddStyle(listItemsContext["mainId"])
     }
-  }
+    
+  }, [listItemsContext])
+   
   return (
     <>
       <div className="ListItemContainer">
         {
-          listItems.map((item) => 
-            <ItemCard img={item.img} amount={item.amount} id={item.id} onClick={onClick}/>
+          items.map((item) => 
+            <ItemCard img={item.img} category={ProfileContext["category"]} id={item.id} url={item.url}/>
           )
         } 
       </div>

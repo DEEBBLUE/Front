@@ -2,16 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 9vw;
-  height: 9vw;
-  background: black;
+  width: 8vw;
+  height: 8vw;
+  background: rgba(90,90,90,0.4);
   margin-left: 4vw;
-  border-radius: 50%;
+  border-radius: 70%;
 }
 .ProfileButton{
   width: 7vw;
   height: 7vw;
   background: transparent;
-  border: 0.5vw solid rgba(70,70,70,1);
-  border-radius: 50%;
+  border: none;
 }

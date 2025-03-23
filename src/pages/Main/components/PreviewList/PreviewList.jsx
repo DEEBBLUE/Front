@@ -1,16 +1,21 @@
-import React,{ useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React,{ useState,useContext,useEffect } from 'react'
+
 import Preview from './Preview/Preview.jsx'
+import { PreviewContext } from './PreviewContainer.jsx'
+import { MainContext } from '../../Container.jsx'
 
-const PreviewList = ({itemsList, setMenuVisible,setMainVisible}) => {
-  const nav = useNavigate()
-  const [mainId,setMainId] = useState("none")
+const PreviewList = () => {
+  const [previewContext,setPreviewContext] = useContext(PreviewContext)
+  const [mainContext,setMainContext] = useContext(MainContext)
 
-  const MainButton = window.Telegram.WebApp.MainButton
+  const [games,setGames] = useState([
+    {id: "1", img: "#", price: "50", url: "/games/case/"},
+    {id: "2", img: "#", price: "100",url: "/games/lottery/"},
+    {id: "3", img: "#", price: "250",url: "/games/funnel/"},
+  ])
 
-  const dropDownAll = () => {
+  const clear = () => {
     const list = document.querySelectorAll(".PreviewContainer")
-    console.log({list})
     list.forEach(card => {
       if(card.classList.contains("Coloring")) {
         card.classList.remove("Coloring")
@@ -20,30 +25,28 @@ const PreviewList = ({itemsList, setMenuVisible,setMainVisible}) => {
 
   const AddStyle = (id) => {
     var elem = document.getElementById(id)
-    console.log(elem)
     elem.classList.add("Coloring")
   }
-  const onClick = (id,url) => {
-    setMenuVisible(false)
-    setMainId(id)
-    dropDownAll()
-    if(id === mainId){
-      setMainId("none")
-      setMainVisible(false)
+
+  useEffect(() => {
+    clear()
+
+    if(previewContext["mainId"] === "none"){
+      setMainContext(prev => ({ ...prev,menuVisible: false,mainButtonVisible: false, mainCallback: ""}))
     }else{
-      AddStyle(id)
-      setMainVisible(true)
-      MainButton.onClick(() => nav(url,{replace: false}))
+      setMainContext(prev => ({...prev,menuVisible: false,mainButtonVisible: true, mainCallback: previewContext["url"] }))
+      AddStyle(previewContext["mainId"])
     }
-  }
+  }, [previewContext])
+   
   return (
     <>
       {
-        itemsList.map((item) => 
-          <Preview id={item.id} price={item.price} img={item.img} url={item.url} onClick={onClick}/> 
+        games.map((item) => 
+          <Preview id={item.id} price={item.price} img={item.img} url={item.url}/> 
         )
       }
-    </>  
+    </>
   )
 }
 export default PreviewList

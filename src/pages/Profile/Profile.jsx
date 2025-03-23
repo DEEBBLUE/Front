@@ -1,30 +1,38 @@
-import React,{ useState } from 'react'
+import React,{ useState,useContext,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ProfileContext } from './ProfileContainer.jsx'
+import { AppContext } from '../../AppContext.jsx'
 import ListItems from './listItems/listItems.jsx'
 import Transform from '../transform.js'
+import ListItemsContainer from './listItems/ListItemsContainer.jsx'
 import './style.css'
 
 function Profile(){
-  const balance = "1000"
+  const backButton = window.Telegram.WebApp.BackButton
+  const mainButton = window.Telegram.WebApp.MainButton
   const nav = useNavigate() 
-  window.Telegram.WebApp.BackButton.show()
-  window.Telegram.WebApp.BackButton.onClick(() => {
+
+  const [appContext,setAppContext] = useContext(AppContext)
+  const [profileContext,setProfileContext] = useContext(ProfileContext)
+
+  const balance = appContext["balance"] 
+
+  backButton.show()
+  backButton.onClick(() => {
     nav("/",{replace: false})
   })
-  window.Telegram.WebApp.MainButton.hide()
 
-  const [context,setContext] = useState("prize")
-  const [items,setItems] = useState([
-      {id: "0",img: "#", amount: "prize"},
-      {id: "1",img: "#", amount: "prize"},
-      {id: "2",img: "#", amount: "prize"},
-      {id: "3",img: "#", amount: "prize"}
-    ])
-  if(context === "prize"){
-    items.map((item) => item.amount="prize")
-  }else{
-    items.map((item) => item.amount="game")
-  }
+  useEffect(() => {
+    setAppContext(prev => ({...prev,category: profileContext["category"]}))
+
+    if(profileContext["mainButtonVisible"]){
+      mainButton.show()      
+      mainButton.onClick(() => nav(profileContext["mainButtonCallback"]))
+    }else{
+      mainButton.hide()      
+    }
+  }, [profileContext])
+  
 
   return (
     <>
@@ -35,10 +43,12 @@ function Profile(){
         <button className="PaymentsButton" onClick={() => nav("/payments",{replace: false})}>Пополнить</button>
       </div>
       <div className="ChoiseButtonContainer">
-        <button className="ChoiseButton" onClick={() => setContext("prize")}>Prizes</button>
-        <button className="ChoiseButton" onClick={() => setContext("game")}>Games</button>
+        <button className="ChoiseButton" onClick={() => setProfileContext(prev => ({...prev,category: "prizes"}))}>Prizes</button>
+        <button className="ChoiseButton" onClick={() => setProfileContext(prev => ({...prev,category: "games"}))}>Games</button>
       </div>
-      <ListItems listItems={items}/>
+      <ListItemsContainer>
+        <ListItems/>
+      </ListItemsContainer>
     </>
   )
 

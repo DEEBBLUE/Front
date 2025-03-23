@@ -1,10 +1,34 @@
-import React,{ useState }from 'react'
+import React,{ useState,useContext }from 'react'
 import ProfileButton from './ProfileButton/ProfileButton.jsx'
+import { MainContext } from '../../Container.jsx'
 import Menu from './Menu/Menu.jsx'
 import './style.css'
 
-const Header = ({ menuVisible,setMenuVisible,callback }) => {
-  const clear = () => {
+const Header = () => {
+  
+  const [context,setContext] = useContext(MainContext)
+
+  return (
+    <>
+      <div className="MainHeaderContainer">
+
+        <div className="HeaderContainer">
+          <ProfileButton/>    
+          <button className="MenuButton" onClick={() => 
+            setContext(prev => ({menuVisible: !prev.menuVisible, mainButtonVisible: false, mainCallback: ""}))
+          }>
+          </button>
+        </div>
+        <Menu/>
+      </div>
+
+    </>
+
+  )
+}
+export default Header
+/*
+ *const clear = () => {
     setTimeout(() => {
       const list = document.getElementsByClassName("MenuItem")
       if(list.length != 0){
@@ -42,19 +66,6 @@ const Header = ({ menuVisible,setMenuVisible,callback }) => {
     callback(game)
     onClick()
   }
-  return (
-    <>
-      <div className="HeaderContainer">
-        <ProfileButton/>    
-        <div className="MenuListContainer">
-          <button className="MenuButton" onClick={() => onClick()}>
-            Кнопока
-          </button>
-          {menuVisible && <Menu getGame={getGame}/>}
-        </div>
-      </div>
-    </>
-
-  )
-}
-export default Header
+ *
+ *
+ * */

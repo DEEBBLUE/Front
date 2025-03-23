@@ -9,9 +9,12 @@ body{
 *::-webkit-scrollbar{
   display: none
 }
+:root{
+  --bg-Card: rgba(50,50,50,0.5);
+}
 @font-face {
-  font-width: normal;
   font-family: "Font";
   src: url("./fonts/SFProText-Bold.ttf");
+  font-weight: 700;
+  font-style: bold;
 }
-

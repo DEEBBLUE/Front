@@ -5,10 +5,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: rgba(50,50,50,0.5);
+  background: var(--bg-Card);
   border-radius: 2vw;
   border: none;
   margin: 5vw;
+  box-sizing: border-box;
 }
 .ItemCardImg{
   width: 32vw;
