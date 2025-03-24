@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import AppContainer from './AppContext.jsx'
 import Container from './pages/Main/Container.jsx'
 import ProfileContainer from './pages/Profile/ProfileContainer.jsx'
+import GameContainer from './pages/Game/GameContainer.jsx'
+
 import Main from './pages/Main/Main.jsx' 
 import Profile from './pages/Profile/Profile.jsx'
 import Payments from './pages/Payments/payments.jsx'
@@ -11,6 +13,7 @@ import Games from './pages/Game/Games.jsx'
 import Funnel from './pages/Game/Funnel/Funnel.jsx'
 import Case from './pages/Game/Case/Case.jsx'
 import Lotter from './pages/Game/Lotter/Lotter.jsx'
+
 import "./style.css"
 
 function App() {
@@ -33,9 +36,9 @@ function App() {
         <Route path="/" element={<Container><Main/></Container>}/>
         <Route path="/profile/" element={<ProfileContainer><Profile/></ProfileContainer>}/>
         <Route path="/payments" element={<Payments/>}/>
-        <Route path="/games/case/" element={<Games/>}/>
-        <Route path="/games/lottery/" element={<Games/>}/>
-        <Route path="/games/funnel/" element={<Games/>}/>
+        <Route path="/games/case/" element={<GameContainer><Games/></GameContainer>}/>
+        <Route path="/games/lottery/" element={<GameContainer><Games/></GameContainer>}/>
+        <Route path="/games/funnel/" element={<GameContainer><Games/></GameContainer>}/>
     </Routes>
   </AppContainer>
   )
