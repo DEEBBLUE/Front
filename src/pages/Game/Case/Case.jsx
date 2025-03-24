@@ -1,17 +1,23 @@
-import React from 'react'
+import React,{ useContext,useEffect } from 'react'
 import onClick from './spin.js' 
+import { GameContext } from '../GameContainer.jsx'
 import './style.css'
 
-const Case = ({active,setActive,delay}) => {
+const Case = () => {
+  const delay = 250
   const animDuration = 12000
-  if (active){
-    setTimeout(() => {
-      onClick()       
-    }, delay);
-    setTimeout(() => {
-      setActive(!active)
-    },animDuration);
-  }
+  const [gameContext,setGameContext] = useContext(GameContext)
+
+  useEffect(() => {
+    if (gameContext["isActive"]){
+      setTimeout(() => {
+        onClick()       
+      }, delay);
+      setTimeout(() => {
+        setGameContext(prev => ({...prev,isActive: false}))
+      },animDuration);
+    }
+  }, [gameContext])
 
   return (
     <>

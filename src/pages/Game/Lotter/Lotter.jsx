@@ -1,34 +1,31 @@
-import React,{ useState,useEffect } from 'react'
+import React,{ useEffect,useContext } from 'react'
 import LotteryField from './LotterField/LotteryField.jsx'
 import ChanceButton from './ChanceButton/ChahceButton.jsx'
+import { GameContext } from '../GameContainer.jsx'
+import { LotterContext } from './LotterContainer.jsx'
 import './style.css'
 
-const Lotter = ({active,setActive}) => {
-  const [count,setCount] = useState(0)
-  const [activeList,setActiveList] = useState([])
-  const [chance,setChance] = useState(true)
-  const [chanceButtonVis,setChanceButtonVis] = useState(false)
-
-  const callback = (Action) => {
-    if(Action){
-      setCount(count - 1)
-    }else{
-      setCount(100)
-    }
-    setChance(false) 
-  }
+const Lotter = () => {
+  const [gameContext,setGameContext] = useContext(GameContext)
+  const [lotterContext,setLotterContext] = useContext(LotterContext)
+  
   useEffect(() => {
-    if (chance && count === 3){
-      setChanceButtonVis(true)
+    if(gameContext["isActive"]){
+      if(lotterContext["chance"]){
+        if(lotterContext["count"] === 3){
+          console.log(lotterContext["chance"])
+          setLotterContext(prev => ({...prev,chanceButtonIsVis: true,chance:false }))
+        }
+      }else{
+        if(lotterContext["count"] === 3 && !lotterContext["chanceButtonIsVis"]){
+          setTimeout(() => {
+            setGameContext(prev => ({...prev,isActive: false}))
+          },1500);
+        }
+      }
     }else{
-      setChanceButtonVis(false)
-
-      console.log(!chance)
-      console.log(!(count === 3))
-
-      if(!chance && !(count === 3)){
-        console.log("Her")
-        activeList.map((id) => {
+      if(lotterContext["activeList"].length > 1){
+        lotterContext["activeList"].map((id,index) => {
           const prize = document.getElementById(id)
           prize.children[0].remove()
           const prizeHide = document.createElement("div")
@@ -38,48 +35,22 @@ const Lotter = ({active,setActive}) => {
             prizeHide.classList.remove("anim-lotter-create")
           }, 1000);
           prize.append(prizeHide)
-
         })
-        setCount(0)
-        setChance(true)
-        setChanceButtonVis(false)
-        setActiveList([])
+        setLotterContext(prev => ({activeList: [0],count: 0,chance: true,chanceButtonIsVis: false}))
       }
-    }  
-  }, [count])
-  
-
-
-  const anim = active ? (id) => {
-    if (count <= 2 && !activeList.includes(id,0)){
-
-      const elem = document.getElementById(id)
-      const prizeHide = elem.children[0]
-      prizeHide.classList.add("anim-lotter-remove")
-      setTimeout(() => {
-        prizeHide.remove() 
-      }, 500);
-
-      const prize = document.createElement("div")
-      prize.classList.add("LotteryPrize")
-      prize.classList.add("anim-lotteryPrize-create")
-    
-      elem.append(prize)
-      setCount(count + 1)
-      activeList.push(id) 
     }
-  } : () => {}
+  }, [lotterContext,gameContext])
   
   return (
     <>
       <div className="LotteryContainer">
         {
           [...Array(4*5)].map((item,index) =>
-            <LotteryField index={index} anim={anim}/>
+              <LotteryField index={index}/>
           )
         } 
       </div>
-      <ChanceButton  isVisible={chanceButtonVis} callback={callback}/>
+      <ChanceButton/>
     </>
   )
 }

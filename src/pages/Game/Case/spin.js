@@ -1,4 +1,3 @@
-var spinLine = ""
 const maxTimeout = 1100
 const minTimeout = 100
 var timeout = maxTimeout 
